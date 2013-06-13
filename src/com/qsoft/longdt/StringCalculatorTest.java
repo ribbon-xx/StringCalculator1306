@@ -44,7 +44,7 @@ public class StringCalculatorTest {
 	
 	@Test
 	public void shouldReturnWithoutNumberGreaterThanOneThoudsandOne(){
-		assertEquals(3, StringCalculator.add("//;\n1;2,1001"));
+		assertEquals(3, StringCalculator.add("//;\n1;2;1001"));
 	}
 	
 	@Test
