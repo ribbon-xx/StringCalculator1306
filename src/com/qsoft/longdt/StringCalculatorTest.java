@@ -32,7 +32,7 @@ public class StringCalculatorTest {
 		try {
 			StringCalculator.add("-1,2,3");
 		} catch (NumberFormatException e) {
-			assertEquals(e.getMessage(), StringCalculator.add("negatives not allowed 1"));
+			assertEquals(e.getMessage(), StringCalculator.add("negatives not allowed -1"));
 		}
 	}
 	

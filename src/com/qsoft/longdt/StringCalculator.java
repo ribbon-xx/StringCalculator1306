@@ -47,12 +47,14 @@ public class StringCalculator {
 	private static String filterDelim(String input) {
 		String tmp = input.replace("//", "");
 		while (tmp.contains("[")) {
-			String delimContent = input.substring(input.indexOf("[") + 1,
-					input.indexOf("]"));
-			String delimDefine = input.substring(input.indexOf("["),
-					input.indexOf("]") + 1);
-			tmp = input.replaceAll(Pattern.quote(delimDefine), "");
-			tmp = input.replaceAll(Pattern.quote(delimContent), ",");
+			String delimContent = tmp.substring(tmp.indexOf("[") + 1,
+					tmp.indexOf("]"));
+			String delimDefine = tmp.substring(tmp.indexOf("["),
+					tmp.indexOf("]") + 1);
+			// System.out.println("delimDefine: " + delimDefine);
+			// System.out.println("delimContent: " + delimContent);
+			tmp = tmp.replaceAll(Pattern.quote(delimDefine), "");
+			tmp = tmp.replaceAll(Pattern.quote(delimContent), ",");
 		}
 		return tmp;
 	}
