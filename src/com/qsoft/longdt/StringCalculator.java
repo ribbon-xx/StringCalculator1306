@@ -25,21 +25,21 @@ public class StringCalculator {
 
 	private static int sumWithoutDelim(String input) {
 		ArrayList<Integer> alInt = new ArrayList<Integer>();
-		Pattern p = Pattern.compile("\\d+");
+		Pattern p = Pattern.compile("-?\\d+");
 		Matcher m = p.matcher(input);
 		while (m.find()) {
-			alInt.add(toInt(m.group()));
+			int number = toInt(m.group());
+			if (number < 0) {
+				throw new java.lang.NumberFormatException(
+						"negatives not allowed " + number);
+			}
+			if (number <= 1000)
+				alInt.add(number);
 		}
 
 		int sum = 0;
 		for (Integer integer : alInt) {
-			if (integer < 0) {
-				throw new NumberFormatException("negatives not allowed "
-						+ integer);
-			}
-			if (integer <= 1000) {
-				sum += integer;
-			}
+			sum += integer;
 		}
 		return sum;
 	}
